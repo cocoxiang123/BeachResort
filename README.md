@@ -26,10 +26,10 @@ Netlify to host the application
 ![](/img/img2.png)
 
 ### Feature room
-![](/img/img4/png)
+![](/img/img4.png)
 
 ### Room Detail
-![](/img/img5/png)
+![](/img/img5.png)
 
 This project is for personal practise. 
 Thanks for the video : https://www.youtube.com/watch?v=ScDWrogElmo&t=16353s
