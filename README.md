@@ -1,4 +1,6 @@
-Beach Resort.
+# Beach Resort
+
+## Introduction
 
 This project provides hotel informations for beach resort. 
 
@@ -11,3 +13,6 @@ React Router for routing, react functional components
 React hook such as useState, useEffect and useContext 
 
 Netlify to host the application 
+
+## ScreenShots
+### Index.itml
