@@ -26,6 +26,7 @@ function RoomProvider({ children }) {
   //getData
   const { type, capacity, price, minSize, maxSize, breakfast, pets } = values;
 
+
   useEffect(() => {
     filterRooms();
     setMinPrice(() => Math.min(...rooms.map((item) => item.price)));
