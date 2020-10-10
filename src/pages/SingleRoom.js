@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import defaultBcg from "../images/room-1.jpeg";
 import Banner from "../components/Banner";
 import { Link, useParams } from "react-router-dom";
@@ -10,6 +10,11 @@ function SingleRoom() {
   const slug = Params.slug;
   const { getRoom } = useContext(RoomContext);
   const room = getRoom(slug);
+
+  useEffect(() => {
+    if (!room) { return null }
+    else window.scrollTo(0, 0)
+  });
   if (!room) {
     return (
       <div className="error">
@@ -20,6 +25,8 @@ function SingleRoom() {
       </div>
     );
   }
+
+
   const {
     name,
     description,
@@ -32,6 +39,7 @@ function SingleRoom() {
     images,
   } = room;
   const [mainImg, ...defaultImg] = images;
+
   return (
     <>
       <StyledHero img={mainImg || defaultBcg}>
@@ -55,7 +63,7 @@ function SingleRoom() {
           <article className="info">
             <h3>info</h3>
             <h6>price: ${price}</h6>
-            <h6>size:${size} SQFT</h6>
+            <h6>size:{size} SQFT</h6>
             <h6>
               max capacity:{" "}
               {capacity > 1 ? `${capacity} people` : `${capacity} person`}

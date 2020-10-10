@@ -14,13 +14,15 @@ function RoomProvider({ children }) {
     return tempItems;
   };
 
+
   const [rooms, setRooms] = useState(() => formatData(items));
   const [sortedRooms, setsortedRooms] = useState(rooms);
   const [featuredRooms, setFeaturedRooms] = useState(() => rooms.filter((room) => room.featured === true));
   const [loading, setLoading] = useState(false);
   const [minPrice, setMinPrice] = useState(() => Math.min(...rooms.map((item) => item.price)));
   const [maxPrice, setMaxPrice] = useState(() => Math.max(...rooms.map((item) => item.price)));
-  const [values, setValues] = useState({ type: "all", capacity: 1, price: maxPrice, minSize: 0, maxSize: 1000, breakfast: false, pets: false })
+  const initialValues = { type: "all", capacity: 1, price: maxPrice, minSize: 0, maxSize: 1000, breakfast: false, pets: false };
+  const [values, setValues] = useState(initialValues)
   //getData
   const { type, capacity, price, minSize, maxSize, breakfast, pets } = values;
 
@@ -45,6 +47,10 @@ function RoomProvider({ children }) {
       setValues({ ...values, [name]: value })
     }
   };
+  const onHandleBtnClick = e => {
+    e.preventDefault();
+    setValues(initialValues)
+  }
   const filterRooms = () => {
     let tempRooms = [...rooms];
     tempRooms = tempRooms.filter(room => room.price <= price);
@@ -81,6 +87,7 @@ function RoomProvider({ children }) {
     getRoom,
     handleChange,
     filterRooms,
+    onHandleBtnClick
   };
   return <RoomContext.Provider value={state}>{children}</RoomContext.Provider>;
 }

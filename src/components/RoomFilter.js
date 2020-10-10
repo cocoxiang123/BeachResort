@@ -10,6 +10,7 @@ function RoomFilter({ rooms }) {
 
   const {
     handleChange,
+    onHandleBtnClick,
     values,
     minPrice,
     maxPrice,
@@ -82,7 +83,7 @@ function RoomFilter({ rooms }) {
               <input type="checkbox" name="pets" id="pets" checked={pets} onChange={handleChange}></input>
               <label htmlFor="pets">pets</label>
             </div>
-            <button className="btn">Clear</button>
+            <button className="btn" onClick={onHandleBtnClick}>Clear</button>
           </div>
 
         </form>
